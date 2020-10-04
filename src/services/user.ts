@@ -1,6 +1,4 @@
-import { response } from 'express';
 import db from '../database';
-import { InvalidParameterError } from '../errors/InvalidParameterError';
 import validateParemeters from '../helpers/validateParameters';
 import UserInterface from '../models/UserInterface';
 import { getSha256 } from '../utils/sha256';
