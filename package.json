@@ -10,10 +10,8 @@
     "start:dev": "tsnd -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/",
     "build": "babel src --extensions '.js,.ts' --out-dir dist --copy-files --no-copy-ignored",
     "test": "jest",
-
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
     "knex:rollback": "knex --knexfile knexfile.ts migrate:rollback"
-
   },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
@@ -33,6 +31,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "knex": "^0.21.6",
-    "sqlite3": "^5.0.0"
+    "sqlite3": "^5.0.0",
+    "tsconfig-paths": "^3.9.0"
   }
 }
