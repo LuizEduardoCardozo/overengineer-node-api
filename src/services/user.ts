@@ -25,7 +25,7 @@ export async function getUserByEmail(email: string): Promise<UserInterface> {
 	return user[0];
 }
 
-export async function userDoLogin(email: string, password: string): boolean {
+export async function userDoLogin(email: string, password: string): Promise<boolean> {
 
 	const user = await getUserByEmail(email);
 	const hashedPassword = getSha256(password);
