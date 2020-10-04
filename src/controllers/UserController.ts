@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { createNewUser, storeUser } from '../services/user';
+import { createNewUser, storeUser, userDoLogin } from '../services/user';
 
 export async function create( req: Request, res: Response ): Promise<Response<any>> {
 
@@ -9,4 +9,11 @@ export async function create( req: Request, res: Response ): Promise<Response<an
 
 	return res.status(201).send();
     
+}
+
+
+export async function login(req: Request, res: Response): Promise<Response<any>> {
+	const { email, password } = req.body;
+	const auth = await userDoLogin(email, password);
+	return res.json({ auth });
 }

@@ -19,3 +19,19 @@ export async function storeUser(params: UserInterface): Promise<number> {
 	const storedUserId = storedUsersIds[0];
 	return storedUserId;
 }
+
+export async function getUserByEmail(email: string): Promise<UserInterface> {
+	const user = await db('users').where('email', email);
+	return user[0];
+}
+
+export async function userDoLogin(email: string, password: string): boolean {
+
+	const user = await getUserByEmail(email);
+	const hashedPassword = getSha256(password);
+
+	if(user.password !== hashedPassword)
+		return false;
+
+	return true;
+}
